@@ -1,32 +1,48 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import './Header.css'
 import { Link } from 'react-router-dom';
 import './Header.css';
-import header from '../../images/header.png';
-import logo from '../../images/icons/logo.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import images from '../../images/icons/logo.png'
+import { UserContext } from '../../App';
 
 const Header = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
-        <div style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${header})` }} className="header">
-            <nav className="nav">
-                <ul>
-                    <li>
-                        <img className="logo" src={logo} alt=""/>
+        <div>
+             <div >
+            <nav className="navbar navbar-expand-lg text-light ">
+              <div className="container">
+                <Link to="/">
+                  <img id="logo" className="navbar-brand custom-logo" src={images} alt=""/>
+                </Link>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/navbarSupportedContent" aria-control="navbarSupportContent" aria-expanded="false" aria-lable="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className=" navbar-collapse">
+                  <ul className="navbar-nav mr-auto">                  
+                    <li id="headerli" className="nav-item active">
+                      <Link className="nav-link mx-2" to="/home">Home</Link>
                     </li>
-                    <li>
-                        <Link to="/home">Home</Link>
+                    <li className="nav-item  mx-2">
+                      <Link className="nav-link" to="/donation">Donation</Link>
                     </li>
-                    <li>
-                        <Link to="/login">Login</Link>
+                    <li className="nav-item  mx-2">
+                      <Link className="nav-link" to="/events">Events</Link>
                     </li>
-                    <li>
-                        <Link className="btn-book" to="/book">Book</Link>
+                    <li className="nav-item mx-2">
+                      <Link className="nav-link" to="/blog">Blog</Link>
                     </li>
-                </ul>
+                  </ul>
+                  <h3 id="username">{loggedInUser.email}</h3>
+                  <Link to="/registered" id="loginbutton" className="btn btn-outline-warning">Reg. List</Link>
+                  <Link to="/admin" id="logoutbutton" className="btn btn-outline-primary my-2 my-sm-">Admin</Link>
+                  <button id="logoutbutton" className="btn btn-outline-danger my-2 my-sm-" onClick={() => setLoggedInUser({})}>Logout</button>
+                </div>
+              </div>
             </nav>
-            <div className="title-container">
-                <h1>Burj Al Arab</h1>
-                <h2>A global icon of Arabian luxury</h2>
-            </div>
+          </div>
+          <br/>     
         </div>
     );
 };

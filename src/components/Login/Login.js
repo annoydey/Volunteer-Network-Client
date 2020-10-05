@@ -2,8 +2,12 @@ import React, { useContext } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
+import { Button } from '@material-ui/core';
 import {UserContext} from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import google from '../../images/icons/google.png'
+import { Container, Form } from 'react-bootstrap';
+import './Login.css'
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -21,6 +25,7 @@ const Login = () => {
             const {displayName, email} = result.user;
             const signedInUser = {name: displayName, email} 
             setLoggedInUser(signedInUser);
+            storeAuthToken();
             history.replace(from);
             // ...
           }).catch(function(error) {
@@ -28,11 +33,31 @@ const Login = () => {
             console.log(errorMessage);
           });
     }
+
+
+    const storeAuthToken = () => {
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+      .then(function(idToken) {
+        sessionStorage.setItem('token',idToken);
+      }).catch(function(error) {
+        // Handle error
+      });
+    }
+
     return (
-        <div>
-            <h1>This is Login</h1>
-            <button onClick={handleGoogleSignIn}>Google Sign in</button>
+        <Container className="text-center text-white">
+        <div id="login" className="mx-auto p-3 rounded" style={{textAlign: 'center'}}>
+        <h3>Login With</h3>
+          <Form>
+                    
+                </Form>
+                    <Button variant="outlined" className=" my-3 rounded-pill" onClick={handleGoogleSignIn}>
+                        <img src={google} className="icon" alt=""/>
+                        <h5>Continue with Google</h5>
+                    </Button>
+                    <h6>Don't have an account? Create an account</h6>
         </div>
+      </Container> 
     );
 };
 
