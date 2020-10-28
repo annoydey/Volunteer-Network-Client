@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[VOLUNTEER NETWORK – A SOCIAL EVENT MANAGEMENT APPLICATION](https://github.com/annoydey/Volunteer-Network-Client.git)
+[VOLUNTEER NETWORK – A SOCIAL EVENT MANAGEMENT APPLICATION](https://github.com/annoydey/Volunteer-Network-Client.git)  
 
-Features 
+Features   
 Site has firebase authentication and a collection of e-mails in MongoDB. User can book any Volunteer Service.
 
 Client 
