@@ -26,6 +26,6 @@ Technology Used
 
 [Server Repository](https://github.com/annoydey/volunteer-network-server.git)     
 
-[Resume Link](https://drive.google.com/file/d/1jmSUwMqBiAngCEs62cNgkAIyI6z1SwNo/view?usp=sharing)
+## 🔗 Portfolio Link: https://annoydey.github.io/portfolio/
 
 
