@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 [VOLUNTEER NETWORK – A SOCIAL EVENT MANAGEMENT APPLICATION](https://github.com/annoydey/Volunteer-Network-Client.git)  
 
 Features   
